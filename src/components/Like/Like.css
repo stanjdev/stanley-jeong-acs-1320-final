@@ -1,0 +1,10 @@
+.likeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count, button {
+  padding: 10px;
+}
+
