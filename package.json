@@ -2,7 +2,7 @@
   "name": "metal-bands-final",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://stanjdev.github.io/stanley-jeong-acs-1320-final",
+  "homepage": "https://stanjdev.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
