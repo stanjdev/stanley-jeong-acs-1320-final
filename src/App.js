@@ -6,23 +6,22 @@ import data from './data/metal.json';
 import { useState } from 'react';
 
 function App() {
-  const bands = data.map((band) => {
-    return <Band 
-              key={band.ID} 
-              band_name={band.band_name} 
-              formed={band.formed} 
-              origin={band.origin} 
-              fans={band.fans} 
-              split={band.split}
-              style={band.style} 
-            />
-  })
 
-  const [ search, setSearch ] = useState('');
-  const inputSearch = (evt) => {
-    setSearch(evt.target.value)
-    bands.filter((band) => band.band_name.includes(evt.target.value))
-  };
+  const [ query, setQuery ] = useState('');
+  const bands = data.filter(({ band_name, style }) => {
+    return band_name.toLowerCase().includes(query.toLowerCase()) 
+    || style.toLowerCase().includes(query.toLowerCase())
+  }).map((band) => {
+    return <Band 
+            key={band.ID} 
+            band_name={band.band_name} 
+            formed={band.formed} 
+            origin={band.origin} 
+            fans={band.fans} 
+            split={band.split}
+            style={band.style} 
+          />
+  })
 
   return (
     <div className="App">
@@ -30,9 +29,11 @@ function App() {
           <Heading />
           <MetalMeta />
           <input 
-            onChange={(evt) => inputSearch(evt)}
+            className='searchInput'
+            value={query}
+            placeholder="search"
+            onChange={(evt) => setQuery(evt.target.value)}
           />
-          <p>{search}</p>
           <div className='bandGrid'>
             {bands}
           </div>

@@ -18,3 +18,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
+
+.searchInput {
+  margin-bottom: 15px;
+}
